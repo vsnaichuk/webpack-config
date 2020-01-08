@@ -1,0 +1,6 @@
+.*
+!.gitattributes
+!.gitignore
+!.jshintrc
+
+/node_modules/

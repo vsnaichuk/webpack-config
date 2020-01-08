@@ -1,0 +1,21 @@
+{
+  "name": "webpack__course",
+  "version": "0.0.1",
+  "description": "Course about webpack basics",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "webpack",
+    "js",
+    "javascript",
+    "web"
+  ],
+  "author": "Snaichuk Volodumur",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  }
+}
