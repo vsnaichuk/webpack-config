@@ -13,6 +13,10 @@ module.exports = {
     optimization: {
         minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
     },
+    devServer: {
+        contentBase: path.resolve(__dirname, 'dist'),
+        port: 4200
+    },
     plugins: [
         new HtmlWebpackPlugin({
             filename: 'index.html',
