@@ -2,5 +2,6 @@
 !.gitattributes
 !.gitignore
 !.jshintrc
+!.babelrc
 
 /node_modules/
