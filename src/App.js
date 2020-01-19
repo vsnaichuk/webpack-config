@@ -13,19 +13,19 @@ export default class App extends React.Component {
     }
 
     render() {
-        return {
+        return (
             <React.Fragment>
-                <h1 class="header">Webpack course</h1>
+                <h1 className="header">Webpack course</h1>
                 <header></header>
                 
-                <hr>
+                <hr />
             
-                <div class="box">
-                    <div class="box__title">Some text</div>
-                    <div class="box__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quo praesentium beatae, culpa quos iste consequuntur numquam corrupti natus maiores?</div>
+                <div className="box">
+                    <div className="box__title">Some text</div>
+                    <div className="box__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quo praesentium beatae, culpa quos iste consequuntur numquam corrupti natus maiores?</div>
                 </div>
             </React.Fragment> 
-        }
+        )
     }
 }
 
