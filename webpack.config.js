@@ -1,13 +1,20 @@
 const path = require('path')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const TerserJSPlugin = require('terser-webpack-plugin')
 
 module.exports = {
-    entry: './src/index.js',
+    context: path.resolve(__dirname, 'src'),
+    entry: {
+      main: './index.js',
+      analytics: './analytics.js'
+    },
+    
     output: {
-        filename: 'bundle.js',
+        filename: '[name].[contenthash].js',
         path: path.resolve(__dirname, 'dist')
     },
     optimization: {
@@ -18,9 +25,10 @@ module.exports = {
         port: 4200
     },
     plugins: [
+        new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             filename: 'index.html',
-            template: './src/index.html',
+            template: './index.html',
             minify: {
               collapseWhitespace: true,
               removeComments: true,
@@ -29,6 +37,10 @@ module.exports = {
               removeStyleLinkTypeAttributes: true,
               useShortDoctype: true
             }
+        }),
+        new ScriptExtHtmlWebpackPlugin({
+          sync: 'important',
+          defaultAttribute: 'defer'
         }),
         new MiniCssExtractPlugin({
             filename: 'style.css',
