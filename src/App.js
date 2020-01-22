@@ -24,6 +24,9 @@ export default class App extends React.Component {
                     <div className="box__title">Some text</div>
                     <div className="box__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quo praesentium beatae, culpa quos iste consequuntur numquam corrupti natus maiores?</div>
                 </div>
+
+                <div className="logo"></div>
+                
             </React.Fragment> 
         )
     }
