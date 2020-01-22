@@ -3,6 +3,8 @@ import {render} from 'react-dom'
 import AppService from './modules/app.service'
 import {config} from './modules/config'
 import App from './App'
+import users from './users.json'
+import logo from './icons/logo.png'
 import './modules/ts.module'
 import './css/index.css'
 import './less/index.less'
@@ -10,7 +12,11 @@ import './scss/index.scss'
 
 console.log('Config key: ', config.key)
 
-const service = new AppService('Hello world')
+const service = new AppService('Hello webpack', logo)
 service.log()
+
+console.log('Show users: ', users)
+
+
 
 render(<App />, document.getElementById('app'))
