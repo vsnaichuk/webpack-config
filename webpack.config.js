@@ -68,6 +68,10 @@ module.exports = {
             use: ['file-loader'] 
           },
           { 
+            test: /\.(ttf|woff|woff2|eot)$/, 
+            use: ['file-loader'] 
+          },
+          { 
             test: /\.(js|ts)$/, 
             exclude: /node_modules/, 
             loader: 'babel-loader' 
