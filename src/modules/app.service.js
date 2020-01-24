@@ -4,6 +4,13 @@ export default class AppService {
         this.img = img
     }
 
+    toString() {
+        return JSON.stringify({
+            text: this.text,
+            img: this.img
+        }, null, 2)
+    }
+
     log() {
         console.log('[App service]:', this.text, this.img)
     }
