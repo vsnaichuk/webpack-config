@@ -5,6 +5,7 @@ const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const TerserJSPlugin = require('terser-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
     context: path.resolve(__dirname, 'src'),
@@ -28,7 +29,6 @@ module.exports = {
         port: 4200
     },
     plugins: [
-        new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: './index.html',
@@ -41,6 +41,13 @@ module.exports = {
               useShortDoctype: true
             }
         }),
+        new CleanWebpackPlugin(),
+        new CopyWebpackPlugin([
+          {
+            from: path.resolve(__dirname, 'src/icons/favicon.ico'),
+            to: path.resolve(__dirname, 'dist')
+          }
+        ]),
         new ScriptExtHtmlWebpackPlugin({
           sync: 'important',
           defaultAttribute: 'defer'
