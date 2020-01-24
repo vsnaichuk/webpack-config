@@ -19,6 +19,9 @@ module.exports = {
     },
     optimization: {
         minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
+        splitChunks: {
+          chunks: 'all'
+        } 
     },
     devServer: {
         contentBase: path.resolve(__dirname, 'dist'),

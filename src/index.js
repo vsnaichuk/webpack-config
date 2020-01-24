@@ -17,10 +17,6 @@ const service = new AppService('Hello webpack', logo)
 
 $('pre').addClass('code').html(service.toString())
 
-
-
 console.log('Show users: ', users)
-
-
 
 render(<App />, document.getElementById('app'))
