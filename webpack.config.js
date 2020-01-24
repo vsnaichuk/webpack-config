@@ -47,7 +47,11 @@ module.exports = {
         })
     ],
     resolve: {
-      extensions: ['.js','.ts']
+      extensions: ['.js','.ts'],
+      alias: {
+        '@modules': path.resolve(__dirname, 'src/modules'),
+        '@': path.resolve(__dirname, 'src')
+      }
     },
     module: {
         rules: [
