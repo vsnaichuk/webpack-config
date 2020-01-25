@@ -1,7 +1,7 @@
 .*
 !.gitattributes
 !.gitignore
-!.jshintrc
+!.eslintrc
 !.babelrc
 
 /node_modules/
