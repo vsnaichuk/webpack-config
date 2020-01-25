@@ -6,6 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const TerserJSPlugin = require('terser-webpack-plugin')
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin')
+const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer')
 
 
 const isDev = process.env.NODE_ENV === 'development'
@@ -65,26 +66,8 @@ const babelOptions = preset => {
     return opts
 }
 
-module.exports = {
-    context: path.resolve(__dirname, 'src'),
-    entry: {
-        main: ['@babel/polyfill', './index.jsx'],
-        analytics: './analytics.js'
-    },
-
-    output: {
-        filename: '[name].[contenthash].js',
-        path: path.resolve(__dirname, 'dist')
-    },
-
-    optimization: optimization(),
-
-    devServer: {
-        contentBase: path.resolve(__dirname, 'dist'),
-        port: 4200
-    },
-
-    plugins: [
+const plugins = () => {
+    const base = [
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: './index.html',
@@ -109,7 +92,37 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash].css',
         })
-    ],
+    ]
+
+    if (isProd) {
+        base.push(new BundleAnalyzerPlugin())
+    }
+
+    return base
+} 
+
+module.exports = {
+    context: path.resolve(__dirname, 'src'),
+    entry: {
+        main: ['@babel/polyfill', './index.jsx'],
+        analytics: './analytics.js'
+    },
+
+    output: {
+        filename: '[name].[contenthash].js',
+        path: path.resolve(__dirname, 'dist')
+    },
+
+    optimization: optimization(),
+
+    devtool: isDev ? 'source-map' : '',
+
+    devServer: {
+        contentBase: path.resolve(__dirname, 'dist'),
+        port: 4200
+    },
+
+    plugins: plugins(),
 
     resolve: {
         extensions: ['.js', '.ts'],
