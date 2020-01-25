@@ -23,5 +23,10 @@ console.log('Show users: ', users)
 $('pre').addClass('code').html(service.toString())
 
 
-
 render(<App />, document.getElementById('app'))
+
+
+import('lodash').then( _ => {
+    console.log('Lodash', _.random(5, 10, true))
+  
+})
