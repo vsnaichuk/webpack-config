@@ -15,7 +15,7 @@ export default class App extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <h1 className="header">Webpack course</h1>
+                <h1 className="header">Webpack config</h1>
                 <header></header>
                 
                 <hr />
